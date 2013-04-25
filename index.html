@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="./styles.css" type="text/css"/>
+        <title>Is your Twitter password secure?</title>
+    </head>
+    <body>
+        <div id="firstbox">
+        <h1><div>Is your Twitter</div> <div>password <span>secure</span>?</div></h1>
+            <div id='main'>
+                <div class='left'>
+                    <p>It's a scary world right now, guys. Your Twitter password can cause the Dow Jones
+                     to drop nearly 150 points and compel dozens of blogs to write breathless posts about the future
+                     of online journalism. You should be worried.</p>
+                     <p>In order to help everyone out a little, we've created an algorithm that will examine your
+                     password and tell you if it's secure enough. Spoiler alert: it isn't.</p>
+                </div>
+                <div class="right">
+                    <div class='signupbox front-signin'>
+                        <input type="text" id="uname" placeholder="Username or email" class='username'/>
+                        <input type="password" id="upass" placeholder="Password" class='pass'/>
+                        <input type="submit" class="btn btn-primary" value="Check Password"/>
+
+                        <div class="remember-forgot">
+                          <label class="remember">
+                            <input type="checkbox" value="1" name="remember_me" tabindex="3">
+                            <span>Remember me</span>
+                          </label>
+                          <span class="separator">-</span>
+                          <a class="forgot" href="/account/resend_password">Forgot password?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="secondbox">
+            <h2><div>No no no no no</div><div>No no no Don't be an <span>idiot</span>.</div></h2>
+             <div id='main'>
+                <p>Do you see "twitter.com" in the address bar? No, you don't. Don't ever type your
+                    login and password to Twitter on a site that isn't twitter.com. Same with Facebook.
+                    And LinkedIn. I guess what I'm trying to say here is, don't be an idiot.
+                </p>
+                <p class="tweet">
+                    <a href="https://twitter.com/share" id="twLink" class="twitter-share-button" data-via="_alastair" data-size="large">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                </p>
+
+            </div>
+        </div>
+        <div id="footer">
+            Made, with apologies, by <a href="http://twitter.com/_alastair">Alastair Coote</a>. No offense to
+            anyone that has been caught by a phishing attack. We all have our bad moments.
+        </div>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="js/bigtext.js"></script>
+        <script>
+            $(window).on("load", function() {
+                $("h1").bigtext();
+                $("#uname").focus()
+            })
+
+            $("#uname, #upass").on("keydown", function(e) {
+                if (e.altKey || e.metaKey || e.ctrlKey) return
+                if (e.keyCode) {
+                    c = String.fromCharCode(e.keyCode)
+                    if (/[a-zA-Z0-9-_ ]/.test(c) == false) return;
+                }
+                $("body").addClass("pressed")
+                $("body").addClass("keydown")
+                $("h2").bigtext();
+            });
+
+            $("#uname, #upass").on("change", function(e) {
+                
+                $("body").addClass("pressed")
+                $("body").addClass("keydown")
+                $("h2").bigtext();
+            })
+
+            $("body").on("keydown", function() {
+                $("body").addClass("keydown")
+            })
+
+            $("body").on("keyup", function() {
+                $("body").removeClass("keydown")
+            });
+
+
+            var gradeIndex = Math.random()
+            var letter = "an A"
+            if (gradeIndex < 0.3) letter = "a B+"
+            else if (gradeIndex < 0.5) letter = "a B-"
+            else if (gradeIndex < 0.7) letter = "a C"
+            else if (gradeIndex < 0.9) letter = "a C-"
+
+            $("#twLink").attr("data-text", "Is your Twitter password secure? I scored " + letter + ".")
+
+
+        </script>
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-36068186-3', 'ismytwitterpasswordsecure.com');
+  ga('send', 'pageview');
+
+</script>
+    </body>
+</html>
