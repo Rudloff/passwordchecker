@@ -11,7 +11,7 @@
       STYLE_ID: 'bigtext-id',
       LINE_CLASS_PREFIX: 'bigtext-line',
       EXEMPT_CLASS: 'bigtext-exempt',
-      DEFAULT_CHILD_SELECTOR: '> div',
+      DEFAULT_CHILD_SELECTOR: '> span',
       childSelectors: {
         div: '> div',
         ol: '> li',
